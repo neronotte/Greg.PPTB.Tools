@@ -1,0 +1,22 @@
+[
+  {
+    "uniquename": "shko_ALMDemo",
+    "appmoduleid": "f4abae88-95d9-f011-8543-7ced8d48a629",
+    "name": "ALM Demo"
+  },
+  {
+    "uniquename": "mspp_PowerPageManagement",
+    "appmoduleid": "bb066b85-dad7-f011-8543-7ced8d4a0dfa",
+    "name": "Power Pages Management"
+  },
+  {
+    "uniquename": "PowerPlatformEnvironmentSettings",
+    "appmoduleid": "47a41949-d2d7-f011-8543-7ced8d4a0dfa",
+    "name": "Power Platform Environment Settings"
+  },
+  {
+    "uniquename": "albx_QuickTest",
+    "appmoduleid": "be7d9210-4e72-f111-ab0d-00224899c4e3",
+    "name": "Quick Test"
+  }
+]

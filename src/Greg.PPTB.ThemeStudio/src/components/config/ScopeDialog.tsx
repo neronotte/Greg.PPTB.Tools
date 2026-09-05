@@ -118,7 +118,7 @@ export function ScopeDialog({
         setAppsLoading(true);
         let cancelled = false;
 
-        (async () => {
+        void (async () => {
             try {
                 const loaded = await dataverseAppService.listApps();
                 if (!cancelled) {

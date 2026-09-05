@@ -1,0 +1,54 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as AppStories from './App.stories';
+
+<Meta title="Introduction" />
+
+# Theme Studio for Power Platform ToolBox
+
+**Theme Studio** is a WYSIWYG theme authoring tool and live preview environment for Microsoft Power Platform model-driven apps. It enables makers and administrators to design, test, and publish custom Dataverse app themes with real-time feedback across forms, views, and app chrome.
+
+---
+
+## 1. Studio Header & Configuration Toolbar
+
+Every session starts here. The header shows the tool name and version, and the toolbar underneath drives the whole workflow:
+
+- **Environment** — the Dataverse connection PPTB is currently attached to.
+- **Solution** — the unmanaged solution every new or updated web resource is written to. It is mandatory; the tool never falls back to the default solution.
+- **Theme file** — the theme XML web resource being edited, with **Open** (pick an existing one) and **New** (start from scratch).
+- **Save to Dataverse** — creates or updates the theme web resource and adds it to the chosen solution.
+- **Apply theme** — assigns the saved theme, environment-wide or to a single app.
+
+<Canvas of={AppStories.HeaderAndToolbar} />
+
+---
+
+## 2. Connected App Preview with Document Theme Panel
+
+The model-driven app preview and document theme panel are **fully interactive and share state**. 
+
+Updating any token in the **Document Theme Panel** on the right (primary base color, slot overrides, header background/foreground, or typography) immediately re-renders the live app preview on the left in real-time.
+
+<Canvas of={AppStories.Default} />
+
+---
+
+## 3. Focused Previews
+
+These stories drop the tool chrome and render only the model-driven app shell — app header, navigation and a single canvas. They are themed with the **most recently saved theme web resource**, so whatever you save from the studio shell above shows up here.
+
+### Preview Toolbar
+
+The toolbar below is the real preview footer, and it **drives the preview underneath it**:
+
+- **View / Form** — switches the canvas between the sample grid and the sample form.
+- **Highlight themed areas** — outlines every region the theme actually changes.
+- **Zoom** — scales the mock between 50% and 100%.
+
+<Canvas of={AppStories.PreviewControls} withToolbar="false"/>
+
+WYSIWYG preview of MDA form or view.
+
+<Canvas of={AppStories.FocusedPreview} />
+
+

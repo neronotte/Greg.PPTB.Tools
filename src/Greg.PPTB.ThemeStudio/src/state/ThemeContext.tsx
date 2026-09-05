@@ -71,7 +71,7 @@ export function ThemeProvider({ children, initialModel }: { children: ReactNode;
             resolvedPalette,
             previewTheme,
         }),
-        [state, generatedPalette, resolvedPalette, previewTheme],
+        [state, model, generatedPalette, resolvedPalette, previewTheme],
     );
 
     return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;

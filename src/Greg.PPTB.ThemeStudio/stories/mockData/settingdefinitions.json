@@ -1,0 +1,12 @@
+[
+  {
+    "displayname": "Enable Design Language Theme System",
+    "uniquename": "EnableDesignLanguageThemeSystem",
+    "settingdefinitionid": "b0ac8183-b0f7-4e0f-bedc-7aa77883e075"
+  },
+  {
+    "displayname": "Custom theme definition",
+    "uniquename": "CustomThemeDefinition",
+    "settingdefinitionid": "1ff15758-c439-4b0d-ab7b-e6a5972870d0"
+  }
+]

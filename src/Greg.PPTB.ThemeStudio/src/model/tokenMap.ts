@@ -2,7 +2,7 @@ import {
   createLightTheme,
   type BrandVariants,
   type Theme,
-} from "@fluentui/react-components";
+} from "@fluentui/react-theme";
 import {
   PALETTE_SLOTS,
   type AppHeaderColors,

@@ -430,3 +430,4 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+src/Greg.PPTB.ThemeStudio/storybook-static/

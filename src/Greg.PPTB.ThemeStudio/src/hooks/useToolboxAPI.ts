@@ -100,7 +100,7 @@ export function useHostTheme() {
             }
         };
 
-        getTheme();
+        void getTheme();
 
         return () => {
             cancelled = true;
@@ -123,7 +123,7 @@ export function usePersistedSetting<T>(
 
     useEffect(() => {
         let cancelled = false;
-        (async () => {
+        void (async () => {
             try {
                 const stored = await window.toolboxAPI.settings.get(key);
                 if (!cancelled && stored !== undefined && stored !== null) {

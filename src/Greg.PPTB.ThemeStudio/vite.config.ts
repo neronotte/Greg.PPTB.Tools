@@ -11,7 +11,12 @@ function fixHtmlForPPTB(): Plugin {
     return {
         name: 'fix-html-for-pptb',
         enforce: 'post',
-        transformIndexHtml(html) {
+        transformIndexHtml(html, ctx) {
+            // Only transform the app's index.html, not Storybook's iframe.html or manager
+            if (ctx.filename && !ctx.filename.endsWith('index.html')) {
+                return html;
+            }
+
             // Remove type="module" and crossorigin from script tags
             // IIFE format doesn't need module type, and file:// URLs don't need crossorigin
             html = html.replace(/\s*type="module"/g, '');
@@ -55,8 +60,6 @@ export default defineConfig((configEnv) => {
                     // Use IIFE format for compatibility with iframe srcdoc loading
                     // ES modules can have issues when loaded via file:// URLs in iframes
                     format: 'iife',
-                    // Bundle everything into a single file to avoid module loading issues
-                    inlineDynamicImports: true,
                     // Disable chunking since we're bundling everything
                     manualChunks: undefined,
                 },

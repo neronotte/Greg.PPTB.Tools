@@ -1,65 +1,32 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import {
-    Badge,
     FluentProvider,
     webLightTheme,
     webDarkTheme,
-    Title3,
-    Text,
     makeStyles,
     tokens,
 } from '@fluentui/react-components';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { StudioHeader } from './components/common/StudioHeader';
 import { ConfigPanel } from './components/config/ConfigPanel';
 import { ThemePanel } from './components/theme/ThemePanel';
 import { PreviewFrame } from './components/preview/PreviewFrame';
 import { useHostTheme } from './hooks/useToolboxAPI';
 import { ThemeProvider } from './state/ThemeContext';
+import { useThemeModel } from './state/ThemeContext';
 import { ConfigProvider } from './state/ConfigContext';
 import { PortalMountProvider } from './state/PortalMountContext';
-import { version } from '../package.json';
+import type { ThemeModel } from './model/theme';
 
 const useStyles = makeStyles({
     root: {
         display: 'flex',
         flexDirection: 'column',
         height: '100vh',
+        width: '100%',
+        maxWidth: '100%',
         backgroundColor: tokens.colorNeutralBackground1,
         overflow: 'hidden',
-    },
-    header: {
-        display: 'flex',
-        alignItems: 'flex-start',
-        gap: tokens.spacingHorizontalM,
-        padding: `${tokens.spacingVerticalM} ${tokens.spacingHorizontalL}`,
-        borderBottom: `1px solid ${tokens.colorNeutralStroke1}`,
-    },
-    headerText: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        minWidth: 0,
-    },
-    titleRow: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: tokens.spacingHorizontalS,
-    },
-    headerIcon: {
-        width: '48px',
-        height: '48px',
-        flexShrink: 0,
-        display: 'block',
-        marginTop: '2px',
-    },
-    version: {
-        position: 'relative',
-        top: tokens.spacingVerticalXS,
-    },
-    subtitle: {
-        color: tokens.colorNeutralForeground3,
-        fontSize: tokens.fontSizeBase200,
-        display: 'block',
     },
     body: {
         display: 'flex',
@@ -91,7 +58,25 @@ const useStyles = makeStyles({
  * nest its own FluentProvider with the user-authored theme (Phase 3, see
  * docs/IMPLEMENTATION_PLAN.md §2.10).
  */
-function App() {
+function ThemeModelChangeBridge({
+    onThemeModelChange,
+}: {
+    onThemeModelChange?: (model: ThemeModel) => void;
+}) {
+    const { model } = useThemeModel();
+
+    useEffect(() => {
+        onThemeModelChange?.(model);
+    }, [model, onThemeModelChange]);
+
+    return null;
+}
+
+function App({
+    onThemeModelChange,
+}: {
+    onThemeModelChange?: (model: ThemeModel) => void;
+}) {
     const hostTheme = useHostTheme();
     const styles = useStyles();
     // Without an explicit mount node, Fluent creates its portal host lazily on
@@ -109,31 +94,11 @@ function App() {
             >
                 <div ref={portalMountRef} className={styles.portalHost} />
                 <PortalMountProvider mountRef={portalMountRef}>
-                    <div className={styles.header}>
-                        <img
-                            src="/icons/tool.svg"
-                            alt="Theme Studio icon"
-                            className={styles.headerIcon}
-                        />
-                        <div className={styles.headerText}>
-                            <div className={styles.titleRow}>
-                                <Title3>Theme Studio</Title3>
-                                <Badge
-                                    className={styles.version}
-                                    appearance="tint"
-                                    color="subtle"
-                                    size="small"
-                                >
-                                    {`v${version}`}
-                                </Badge>
-                            </div>
-                            <Text className={styles.subtitle}>
-                                Configure model-driven app themes with a WYSIWYG
-                                preview
-                            </Text>
-                        </div>
-                    </div>
+                    <StudioHeader />
                     <ThemeProvider>
+                        <ThemeModelChangeBridge
+                            onThemeModelChange={onThemeModelChange}
+                        />
                         <ConfigProvider>
                             <ConfigPanel />
                             <div className={styles.body}>

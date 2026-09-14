@@ -19,12 +19,33 @@ export class DataverseOperationError extends Error {
 
 /** Coerces an OData response value (often `unknown`) into a plain string. */
 export function asString(value: unknown): string {
-    return typeof value === 'string' ? value : String(value ?? '');
+    if (typeof value === 'string') {
+        return value;
+    }
+    if (value == null) {
+        return '';
+    }
+    if (typeof value === 'object') {
+        return JSON.stringify(value);
+    }
+    if (typeof value === 'number' || typeof value === 'boolean' || typeof value === 'bigint') {
+        return String(value);
+    }
+    return '';
 }
 
 /** Extracts a human-readable message from any thrown value. */
 export function describe(error: unknown): string {
-    return error instanceof Error ? error.message : String(error);
+    if (error instanceof Error) {
+        return error.message;
+    }
+    if (typeof error === 'string') {
+        return error;
+    }
+    if (typeof error === 'object' && error !== null) {
+        return JSON.stringify(error);
+    }
+    return String(error);
 }
 
 /**

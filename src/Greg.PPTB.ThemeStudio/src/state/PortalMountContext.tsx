@@ -10,13 +10,13 @@ import { createContext, useContext, useEffect, useState, type ReactNode, type Re
  */
 const PortalMountContext = createContext<HTMLDivElement | undefined>(undefined);
 
-export function PortalMountProvider({ mountRef, children }: { mountRef: RefObject<HTMLDivElement | null>; children: ReactNode }) {
+export function PortalMountProvider({ mountRef, children }: { mountRef?: RefObject<HTMLDivElement | null>; children: ReactNode }) {
     // Refs don't trigger a render, so publish the element once it is attached:
     // consumers that rendered before the host existed then pick it up.
     const [mountNode, setMountNode] = useState<HTMLDivElement | undefined>(undefined);
 
     useEffect(() => {
-        setMountNode(mountRef.current ?? undefined);
+        setMountNode(mountRef?.current ?? undefined);
     }, [mountRef]);
 
     return <PortalMountContext.Provider value={mountNode}>{children}</PortalMountContext.Provider>;

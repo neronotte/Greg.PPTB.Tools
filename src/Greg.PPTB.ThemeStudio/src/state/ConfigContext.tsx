@@ -239,7 +239,7 @@ export function ConfigProvider({ children }: { children: ReactNode }) {
 
         let cancelled = false;
         setLogoLoading(true);
-        (async () => {
+        void (async () => {
             try {
                 const found =
                     await dataverseWebResourceService.findWebResourceByName(

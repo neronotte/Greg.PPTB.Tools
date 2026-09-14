@@ -1,0 +1,57 @@
+[
+  {
+    "solutionid": "3eeea31d-d15d-4b11-90e1-f992de2d64cf",
+    "uniquename": "Phase1_Patch_3eeea31d",
+    "version": "1.0.1.0",
+    "friendlyname": "Adding custom table to App",
+    "publisherid": {
+      "publisherid": "4a268eca-94d9-f011-8543-6045bde046de",
+      "friendlyname": "Shko Online",
+      "customizationprefix": "shko"
+    }
+  },
+  {
+    "solutionid": "598f421e-610a-4f6a-80cb-1a105b296cfe",
+    "uniquename": "albx_TestSolution",
+    "version": "1.0.3",
+    "friendlyname": "albx_TestSolution",
+    "publisherid": {
+      "publisherid": "0a069a5a-46b0-44c0-9047-a1212af50e84",
+      "friendlyname": "AlbanianXrm",
+      "customizationprefix": "albx"
+    }
+  },
+  {
+    "solutionid": "d74dfb82-cc93-f111-8076-00224899c75d",
+    "uniquename": "BetimsFiles",
+    "version": "1.0.0.1",
+    "friendlyname": "Betim's Files",
+    "publisherid": {
+      "publisherid": "0a069a5a-46b0-44c0-9047-a1212af50e84",
+      "friendlyname": "AlbanianXrm",
+      "customizationprefix": "albx"
+    }
+  },
+  {
+    "solutionid": "00000001-0000-0000-0001-00000000009b",
+    "uniquename": "Cr87a84",
+    "version": "1.0.0.0",
+    "friendlyname": "Common Data Services Default Solution",
+    "publisherid": {
+      "publisherid": "00000001-0000-0000-0000-00000000005a",
+      "friendlyname": "CDS Default Publisher",
+      "customizationprefix": "cr1d0"
+    }
+  },
+  {
+    "solutionid": "fd140aaf-4df4-11dd-bd17-0019b9312238",
+    "uniquename": "Default",
+    "version": "1.0",
+    "friendlyname": "Default Solution",
+    "publisherid": {
+      "publisherid": "d21aab71-79e7-11dd-8874-00188b01e34f",
+      "friendlyname": "Default Publisher for betim-mvp-alm01",
+      "customizationprefix": "new"
+    }
+  }
+]

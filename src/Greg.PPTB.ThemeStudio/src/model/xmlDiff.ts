@@ -26,7 +26,7 @@ export function diffLines(before: string, after: string): DiffLine[] {
     const right = splitLines(after);
 
     // lengths[i][j] = LCS length of left[i..] and right[j..]
-    const lengths: number[][] = Array.from({ length: left.length + 1 }, () => new Array<number>(right.length + 1).fill(0));
+    const lengths: number[][] = Array.from({ length: left.length + 1 }, () => Array.from({ length: right.length + 1 }, () => 0));
     for (let i = left.length - 1; i >= 0; i -= 1) {
         for (let j = right.length - 1; j >= 0; j -= 1) {
             lengths[i][j] = left[i] === right[j] ? lengths[i + 1][j + 1] + 1 : Math.max(lengths[i + 1][j], lengths[i][j + 1]);

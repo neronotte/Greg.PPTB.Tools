@@ -18,7 +18,7 @@ describe('color conversions', () => {
     });
 
     it('throws on invalid hex input', () => {
-        expect(() => hexToRgb('not-a-color')).toThrow();
+        expect(() => hexToRgb('not-a-color')).toThrow('Invalid HEX colour: "not-a-color"');
     });
 });
 

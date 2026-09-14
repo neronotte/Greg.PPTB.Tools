@@ -1,0 +1,47 @@
+name: Deploy Storybook to Chromatic
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: "chromatic"
+  cancel-in-progress: true
+
+jobs:
+  # Build job
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6  
+        with:
+          fetch-depth: 0 # to be able to get all tags for chromatic
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "lts/*"
+          cache: 'npm'
+          cache-dependency-path: src/Greg.PPTB.ThemeStudio/package-lock.json
+
+      - name: Setup NPM v11
+        run: npm install -g npm@^11
+        working-directory: src/Greg.PPTB.ThemeStudio
+
+      - name: Install Dependencies
+        run: npm ci
+        working-directory: src/Greg.PPTB.ThemeStudio
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@latest
+        # Chromatic GitHub Action options
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: src/Greg.PPTB.ThemeStudio

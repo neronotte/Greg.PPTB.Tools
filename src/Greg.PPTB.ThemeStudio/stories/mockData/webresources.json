@@ -1,0 +1,156 @@
+[
+  {
+    "webresourceid": "edd5579c-cba2-f111-b8db-00224899c4e3",
+    "name": "albx_/theme/theme.xml",
+    "displayname": "albx_/theme/theme.xml",
+    "webresourcetype": 4,
+    "ismanaged": false
+  },
+  {
+    "webresourceid": "ff4af626-2674-44c4-a5cb-41afab8827c3",
+    "name": "albx_/theme/neronotte.svg",
+    "displayname": "_neronotte logo",
+    "webresourcetype": 11,
+    "ismanaged": false
+  },
+  {
+    "webresourceid": "1b1f2f5e-4d1a-4d3f-9f0b-7f3f0a5c9d21",
+    "name": "shko_/images/ShkoOnlineLogo.svg",
+    "displayname": "Shko Online Logo",
+    "webresourcetype": 11,
+    "ismanaged": false
+  },
+  {
+    "webresourceid": "7f9fedcb-1660-4412-9904-5cd932a24f82",
+    "name": "Activities/PluginResources/Labels.ar_SA.resx.xml",
+    "displayname": "Labels.ar_SA.resx",
+    "webresourcetype": 4,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "8ef963fc-383d-488c-b5c7-6c5f0283fa86",
+    "name": "Activities/PluginResources/Labels.bg_BG.resx.xml",
+    "displayname": "Labels.bg_BG.resx",
+    "webresourcetype": 4,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "0b959b53-abe1-4d9c-a61e-76e7f26f8832",
+    "name": "Activities/PluginResources/Labels.ca_ES.resx.xml",
+    "displayname": "Labels.ca_ES.resx",
+    "webresourcetype": 4,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "8e7dafaa-f9a4-4570-8b8f-7ec6ff31c2e8",
+    "name": "Activities/Images/EmptyState.png",
+    "displayname": "EmptyState.png",
+    "webresourcetype": 5,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "9a985298-766e-e811-8106-00155d21620c",
+    "name": "Activities/Images/SaveAsDraft16.png",
+    "displayname": "SaveAsDraft16.png",
+    "webresourcetype": 5,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "174397a4-b274-e811-8108-00155d21620c",
+    "name": "Activities/Images/SaveAsDraft32.png",
+    "displayname": "SaveAsDraft32.png",
+    "webresourcetype": 5,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "72562eca-766e-e811-8106-00155d21620c",
+    "name": "Activities/Images/SendAndClose16.png",
+    "displayname": "SendAndClose16.png",
+    "webresourcetype": 5,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "40632bbf-b274-e811-8108-00155d21620c",
+    "name": "Activities/Images/SendAndClose32.png",
+    "displayname": "SendAndClose32.png",
+    "webresourcetype": 5,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "79b31ff7-fd39-41e3-bce6-baa93df2aa04",
+    "name": "cc_MscrmControls.TemplateEnhanceGalleryHostControl.TemplateEnhanceGalleryHostControl/imgs/Preview.jpg",
+    "displayname": "Preview.jpg",
+    "webresourcetype": 6,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "b02bfb0d-1ac0-40d6-b08c-039c3ff94488",
+    "name": "cc_MscrmControls.TemplateFilterControl.TemplateFilterControl/imgs/Preview.jpg",
+    "displayname": "Preview.jpg",
+    "webresourcetype": 6,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "c8c74b5e-3671-4e65-936e-8711223ef8e1",
+    "name": "cc_MscrmControls.TemplateGalleryHostControl.TemplateGalleryHostControl/imgs/Preview.jpg",
+    "displayname": "Preview.jpg",
+    "webresourcetype": 6,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "cfb03702-4900-4483-b324-6f18defb72f2",
+    "name": "cc_MscrmControls.Chart.ChartControl/img/areachart01.gif",
+    "displayname": "areachart01.gif",
+    "webresourcetype": 7,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "39379e0b-85bb-46b2-8f42-c9cd2451ecab",
+    "name": "cc_MscrmControls.Chart.ChartControl/img/areachart02.gif",
+    "displayname": "areachart02.gif",
+    "webresourcetype": 7,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "6dc99380-106c-4a71-a496-11c53b470e76",
+    "name": "cc_MscrmControls.Chart.ChartControl/img/barchart01.gif",
+    "displayname": "barchart01.gif",
+    "webresourcetype": 7,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "63bfbf17-aab8-e911-a98a-000d3af475ab",
+    "name": "accessChecker_icon",
+    "displayname": null,
+    "webresourcetype": 11,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "2ff410e8-476a-4470-826e-4a2000ebbbae",
+    "name": "Activities/Images/embed_32.svg",
+    "displayname": "Activities/Images/embed_32.svg",
+    "webresourcetype": 11,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "aedcf4b6-3298-4731-9653-7cf7ef7ed472",
+    "name": "Activities/Images/MailTemplate_16.svg",
+    "displayname": "MailTemplate_16.svg",
+    "webresourcetype": 11,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "8b325fb4-8125-4354-9ef6-6fa70ade6186",
+    "name": "Activities/Images/MailTemplate_32.svg",
+    "displayname": "MailTemplate_32.svg",
+    "webresourcetype": 11,
+    "ismanaged": true
+  },
+  {
+    "webresourceid": "91e4c6fe-e275-4723-aae9-60469dcb4400",
+    "name": "Activities/Images/OfficeChat.svg",
+    "displayname": "OfficeChat.svg",
+    "webresourcetype": 11,
+    "ismanaged": true
+  }
+]

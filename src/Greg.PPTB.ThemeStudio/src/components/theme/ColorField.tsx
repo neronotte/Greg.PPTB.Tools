@@ -16,7 +16,12 @@ import {
 } from '@fluentui/react-components';
 import { ArrowResetRegular } from '@fluentui/react-icons';
 import { usePortalMount } from '../../state/PortalMountContext';
-import { hexToHsv, hsvToHex, isValidHex, normalizeHex } from '../../model/brandRamp';
+import {
+    hexToHsv,
+    hsvToHex,
+    isValidHex,
+    normalizeHex,
+} from '../../model/brandRamp';
 import { contrastRatio, WCAG_AA_MINIMUM_CONTRAST } from '../../model/contrast';
 
 const useStyles = makeStyles({
@@ -82,7 +87,16 @@ export interface ColorFieldProps {
  * docs/IMPLEMENTATION_PLAN.md §4.3), optionally with a live contrast readout
  * for the documented `AppHeaderColors` pairings (§2.11).
  */
-export function ColorField({ label, value, onChange, placeholder, onReset, contrastAgainst, hint, disabled }: ColorFieldProps) {
+export function ColorField({
+    label,
+    value,
+    onChange,
+    placeholder,
+    onReset,
+    contrastAgainst,
+    hint,
+    disabled,
+}: ColorFieldProps) {
     const styles = useStyles();
     const mountNode = usePortalMount();
     const [text, setText] = useState(value ?? '');
@@ -129,23 +143,41 @@ export function ColorField({ label, value, onChange, placeholder, onReset, contr
         <div className={styles.root}>
             <Label size="small">{label}</Label>
             <div className={styles.row}>
-                <Popover open={open} onOpenChange={(_, data) => setOpen(data.open)} trapFocus mountNode={mountNode}>
+                <Popover
+                    open={open}
+                    onOpenChange={(_, data) => setOpen(data.open)}
+                    trapFocus
+                    mountNode={mountNode}
+                >
                     <PopoverTrigger disableButtonEnhancement>
                         <button
                             type="button"
                             aria-label={`Pick a colour for ${label}`}
                             className={styles.swatch}
                             disabled={disabled}
-                            style={{ backgroundColor: effective ?? 'transparent' }}
+                            style={{
+                                backgroundColor: effective ?? 'transparent',
+                            }}
                         />
                     </PopoverTrigger>
                     <PopoverSurface>
                         <div className={styles.picker}>
-                            <ColorPicker color={hsv} onColorChange={(_, data) => onChange(hsvToHex(data.color))}>
-                                <ColorArea inputX={{ 'aria-label': 'Saturation' }} inputY={{ 'aria-label': 'Brightness' }} />
+                            <ColorPicker
+                                color={hsv}
+                                onColorChange={(_, data) =>
+                                    onChange(hsvToHex(data.color))
+                                }
+                            >
+                                <ColorArea
+                                    inputX={{ 'aria-label': 'Saturation' }}
+                                    inputY={{ 'aria-label': 'Brightness' }}
+                                />
                                 <ColorSlider aria-label="Hue" />
                             </ColorPicker>
-                            <Button appearance="secondary" onClick={() => setOpen(false)}>
+                            <Button
+                                appearance="secondary"
+                                onClick={() => setOpen(false)}
+                            >
                                 Close
                             </Button>
                         </div>
@@ -158,21 +190,33 @@ export function ColorField({ label, value, onChange, placeholder, onReset, contr
                     disabled={disabled}
                     placeholder={placeholder ?? '#RRGGBB'}
                     aria-label={`${label} HTML colour value`}
-                    onChange={(_, data) => {
-                        setText(data.value);
-                        commitText(data.value);
+                    onChange={(_, data) => setText(data.value)}
+                    onKeyDown={(event) => {
+                        if (event.key === 'Enter') {
+                            event.currentTarget.blur();
+                        }
                     }}
                     onBlur={() => {
-                        // Only discard the typed text when it isn't a usable colour;
-                        // a valid entry has already been committed and normalised.
                         if (invalid) {
                             setText(value ?? '');
+                        } else {
+                            commitText(text);
                         }
                     }}
                 />
                 {onReset && (
-                    <Tooltip content={`Reset ${label}`} relationship="label" mountNode={mountNode}>
-                        <Button appearance="subtle" size="small" icon={<ArrowResetRegular />} disabled={disabled || value === undefined} onClick={onReset} />
+                    <Tooltip
+                        content={`Reset ${label}`}
+                        relationship="label"
+                        mountNode={mountNode}
+                    >
+                        <Button
+                            appearance="subtle"
+                            size="small"
+                            icon={<ArrowResetRegular />}
+                            disabled={disabled || value === undefined}
+                            onClick={onReset}
+                        />
                     </Tooltip>
                 )}
             </div>
@@ -182,8 +226,19 @@ export function ColorField({ label, value, onChange, placeholder, onReset, contr
                 </Text>
             )}
             {contrast !== undefined && (
-                <Text size={100} className={contrast >= WCAG_AA_MINIMUM_CONTRAST ? styles.pass : styles.fail}>
-                    Contrast {contrast.toFixed(2)}:1 {contrast >= WCAG_AA_MINIMUM_CONTRAST ? 'meets' : 'is below'} the recommended {WCAG_AA_MINIMUM_CONTRAST}:1 minimum
+                <Text
+                    size={100}
+                    className={
+                        contrast >= WCAG_AA_MINIMUM_CONTRAST
+                            ? styles.pass
+                            : styles.fail
+                    }
+                >
+                    Contrast {contrast.toFixed(2)}:1{' '}
+                    {contrast >= WCAG_AA_MINIMUM_CONTRAST
+                        ? 'meets'
+                        : 'is below'}{' '}
+                    the recommended {WCAG_AA_MINIMUM_CONTRAST}:1 minimum
                 </Text>
             )}
             {hint && (

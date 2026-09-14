@@ -1,6 +1,6 @@
 {
     "name": "@_neronotte/theme-studio",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "displayName": "Theme Studio",
     "description": "Configure model driven app themes with a WYSIWYG UI/UX",
     "main": "index.html",
